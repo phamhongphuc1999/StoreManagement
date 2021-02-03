@@ -15,16 +15,16 @@
         xmlns:uc="clr-namespace:StoreManagement.CustomControl"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
         Title="Login" WindowStartupLocation="CenterScreen" 
-        Height="300" Width="400">
+        Name="login" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:CustomControlBar></uc:CustomControlBar>
+            <uc:CustomControlBar Tag="{Binding Title, ElementName=login}"></uc:CustomControlBar>
         </Grid>
-        <materialDesign:Card Grid.Row="1" Width="300" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <materialDesign:Card Grid.Row="1" Width="600" Height="300" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid>
                 <Grid.Style>
                     <Style TargetType="Grid">

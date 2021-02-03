@@ -70,7 +70,7 @@ namespace StoreManagement.ViewModel
 
         private void InitializeMouseLeftButtonDownCommand()
         {
-            MinimizeWindowCommand = new RelayCommand<UserControl>(
+            MouseLeftButtonDownCommand = new RelayCommand<UserControl>(
                 sender =>
                 {
                     return sender == null ? false : true;

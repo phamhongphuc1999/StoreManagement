@@ -12,9 +12,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
-        DataContext="{StaticResource MainVM}"
-        mc:Ignorable="d" Title="MainWindow" Height="450" Width="800">
+        xmlns:uc="clr-namespace:StoreManagement.CustomControl"
+        xmlns:Extension="clr-namespace:StoreManagement.CustomAttachedProperties"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        DataContext="{StaticResource MainVM}" Name="StoreManager" Title="Store Managerment"
+        ResizeMode="NoResize" WindowStyle="None"
+        mc:Ignorable="d" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-        <TextBlock Text="ABC"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <uc:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=StoreManager}"></uc:CustomControlBar>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel DockPanel.Dock="Right" Background="Transparent" Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="2"></Setter>
+                            <Setter Property="Width" Value="70"></Setter>
+                            <Setter Property="Height" Value="50"></Setter>
+                            <Setter Property="Background" Value="LightCyan"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button ToolTip="Nhập kho">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Nhập kho" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Kind="Twitter" HorizontalAlignment="Center" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <uc:CustomButton Extension:ExtensionInfo.CustomTitle="ABC" Extension:ExtensionInfo.CustomIcon="Twitter"></uc:CustomButton>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"></Grid>
+                <Grid Grid.Row="1"></Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
