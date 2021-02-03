@@ -14,7 +14,7 @@
         xmlns:local="clr-namespace:StoreManagement.View"
         xmlns:uc="clr-namespace:StoreManagement.CustomControl"
         xmlns:Extension="clr-namespace:StoreManagement.CustomAttachedProperties"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         DataContext="{StaticResource MainVM}" Name="StoreManager" Title="Store Managerment"
         ResizeMode="NoResize" WindowStyle="None"
         mc:Ignorable="d" Height="450" Width="800">
