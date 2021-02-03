@@ -1,17 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Model\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+	</ItemGroup>
 
 </Project>
