@@ -1,51 +1,54 @@
-﻿using System.ComponentModel;
+﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace StoreManagement.CustomControl
 {
     /// <summary>
     /// Interaction logic for CustomButton.xaml
     /// </summary>
-    public partial class CustomButton : UserControl, INotifyPropertyChanged
+    public partial class CustomButton : UserControl
     {
-        private string customTitle;
+        private static DependencyProperty CustomTitleProperty = DependencyProperty.Register(
+            "CustomTitle", typeof(string), typeof(CustomButton));
         public string CustomTitle
         {
-            get { return customTitle; }
+            get { return (string)GetValue(CustomTitleProperty); }
             set
             {
-                customTitle = value;
-                OnPropertyChanged("CustomTitle");
+                SetValue(CustomTitleProperty, value);
             }
         }
 
-        private string customIcon;
+        private static DependencyProperty CustomIconProperty = DependencyProperty.Register(
+            "CustomIcon", typeof(string), typeof(CustomButton));
         public string CustomIcon
         {
-            get { return customIcon; }
+            get { return (string)GetValue(CustomIconProperty); }
             set
             {
-                customIcon = value;
-                OnPropertyChanged("CustomIcon");
+                SetValue(CustomIconProperty, value);
+            }
+        }
+
+
+        public static DependencyProperty CustomButtonCommandProperty = DependencyProperty.Register(
+            "CustomButtonCommand", typeof(ICommand), typeof(CustomButton));
+
+        public ICommand CustomButtonCommand
+        {
+            get { return (ICommand)GetValue(CustomButtonCommandProperty); }
+            set
+            {
+                SetValue(CustomButtonCommandProperty, value);
             }
         }
 
         public CustomButton()
         {
             InitializeComponent();
-            this.DataContext = this;
             CustomTitle = "CustomButton";
             CustomIcon = "ArrowDownBoldCircleOutline";
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string newName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(newName));
-            }
         }
     }
 }

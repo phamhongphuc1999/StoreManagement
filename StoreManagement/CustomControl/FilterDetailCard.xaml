@@ -5,35 +5,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StoreManagement.CustomControl"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" x:Name="filterDetailCard"
              d:DesignHeight="450" d:DesignWidth="800">
-    <materialDesign:Card Background="#03a9f4" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0">
+    <materialDesign:Card Background="#03a9f4" Margin="5"
+                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" Padding="0">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Margin="16 16 16 4"
+            <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding CustomTitle, ElementName=filterDetailCard}"
                 Style="{StaticResource MaterialDesignHeadline5TextBlock}">
-                Call Jennifer
             </TextBlock>
+            <materialDesign:PopupBox Grid.Row="0" HorizontalAlignment="Right" Padding="2 0 2 0">
+                <StackPanel>
+                    <Button Content="More" />
+                    <Button Content="Options" />
+                </StackPanel>
+            </materialDesign:PopupBox>
             <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
             <TextBlock Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left"
-                Style="{StaticResource MaterialDesignBody2TextBlock}">
-                March 19, 2016
+                Style="{StaticResource MaterialDesignBody2TextBlock}"
+                       Text="{Binding Info, ElementName=filterDetailCard}">
             </TextBlock>
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Right">
                 <Button HorizontalAlignment="Right"
                     Style="{StaticResource MaterialDesignToolForegroundButton}"
                     Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
                 </Button>
-                <materialDesign:PopupBox HorizontalAlignment="Right" Padding="2 0 2 0">
-                    <StackPanel>
-                        <Button Content="More" />
-                        <Button Content="Options" />
-                    </StackPanel>
-                </materialDesign:PopupBox>
             </StackPanel>
         </Grid>
     </materialDesign:Card>

@@ -5,19 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StoreManagement.CustomControl"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" x:Name="customButton"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Button ToolTip="{Binding CustomTitle}">
+    <Button Command="{Binding CustomButtonCommand, ElementName=customButton}" ToolTip="{Binding CustomTitle, ElementName=customButton}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock Text="{Binding CustomTitle}" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="{Binding CustomTitle, ElementName=customButton}" HorizontalAlignment="Center"></TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <materialDesign:PackIcon Width="24" Height="24" Kind="{Binding CustomIcon}" HorizontalAlignment="Center" />
+                <materialDesign:PackIcon Width="24" Height="24" Kind="{Binding CustomIcon, ElementName=customButton}" HorizontalAlignment="Center" />
             </Grid>
         </Grid>
     </Button>

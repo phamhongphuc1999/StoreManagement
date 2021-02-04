@@ -49,13 +49,17 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <uc:CustomButton Grid.Column="0" CustomTitle="Nhập kho" CustomIcon="ArrowDownThick"></uc:CustomButton>
                     <uc:CustomButton Grid.Column="1" CustomTitle="Xuất kho" CustomIcon="ArrowUpThick"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="2" CustomTitle="Vật tư" CustomIcon="Dns"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="3" CustomTitle="Đơn vị đo" CustomIcon="Altimeter"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="2" CustomButtonCommand="{Binding SuplierWindowCommand}"
+                                     CustomTitle="Vật tư" CustomIcon="Dns"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="3" CustomButtonCommand="{Binding UnitWindowCommand}"
+                                     CustomTitle="Đơn vị đo" CustomIcon="Altimeter"></uc:CustomButton>
                     <uc:CustomButton Grid.Column="4" CustomTitle="Nhà cung cấp" CustomIcon="Factory"></uc:CustomButton>
                     <uc:CustomButton Grid.Column="5" CustomTitle="Khách hàng" CustomIcon="HumanHandsUp"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="6" CustomTitle="Tài khoản" CustomIcon="AccountBox"></uc:CustomButton>
                 </Grid>
             </Grid>
             <Grid Grid.Row="1">
@@ -102,20 +106,32 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <uc:FilterDetailCard></uc:FilterDetailCard>
+                                    <uc:FilterDetailCard CustomTitle="Lượng nhập" Info="1234"></uc:FilterDetailCard>
                                 </Grid>
                                 <Grid Grid.Column="1">
-                                    <uc:FilterDetailCard></uc:FilterDetailCard>
+                                    <uc:FilterDetailCard CustomTitle="Lượng xuất" Info="1234"></uc:FilterDetailCard>
                                 </Grid>
                                 <Grid Grid.Column="2">
-                                    <uc:FilterDetailCard></uc:FilterDetailCard>
+                                    <uc:FilterDetailCard CustomTitle="Tồn kho" Info="1234"></uc:FilterDetailCard>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </materialDesign:Card>
                 </Grid>
                 <!---list-->
-                <Grid Grid.Row="1"></Grid>
+                <materialDesign:Card Grid.Row="1">
+                    <Grid>
+                        <ListView>
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="STT"></GridViewColumn>
+                                    <GridViewColumn Header="Tên vật tư"></GridViewColumn>
+                                    <GridViewColumn Header="Lượng tồn"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </materialDesign:Card>
             </Grid>
         </Grid>
     </Grid>
