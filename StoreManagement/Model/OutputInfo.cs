@@ -16,10 +16,10 @@ namespace StoreManagement.Model
         [Required(AllowEmptyStrings = false)]
         public string IdObject { get; set; }
 
-        [ForeignKey("InputInfo")]
+        [ForeignKey("Output")]
         [MaxLength(128)]
         [Required(AllowEmptyStrings = false)]
-        public string IdInputInfo { get; set; }
+        public string IdOutput { get; set; }
 
         [ForeignKey("Customer")]
         public string IdCustomer { get; set; }

@@ -51,15 +51,20 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <uc:CustomButton Grid.Column="0" CustomTitle="Nhập kho" CustomIcon="ArrowDownThick"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="1" CustomTitle="Xuất kho" CustomIcon="ArrowUpThick"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="2" CustomButtonCommand="{Binding SuplierWindowCommand}"
+                    <uc:CustomButton Grid.Column="0" CustomButtonCommand="{Binding InputWindowCommand}"
+                                     CustomTitle="Nhập kho" CustomIcon="ArrowDownThick"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="1" CustomButtonCommand="{Binding OutputWindowCommand}"
+                                     CustomTitle="Xuất kho" CustomIcon="ArrowUpThick"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="2" CustomButtonCommand="{Binding ObjectWindowCommand}"
                                      CustomTitle="Vật tư" CustomIcon="Dns"></uc:CustomButton>
                     <uc:CustomButton Grid.Column="3" CustomButtonCommand="{Binding UnitWindowCommand}"
                                      CustomTitle="Đơn vị đo" CustomIcon="Altimeter"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="4" CustomTitle="Nhà cung cấp" CustomIcon="Factory"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="5" CustomTitle="Khách hàng" CustomIcon="HumanHandsUp"></uc:CustomButton>
-                    <uc:CustomButton Grid.Column="6" CustomTitle="Tài khoản" CustomIcon="AccountBox"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="4" CustomButtonCommand="{Binding SuplierWindowCommand}"
+                                     CustomTitle="Nhà cung cấp" CustomIcon="Factory"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="5" CustomButtonCommand="{Binding CustomerWindowCommand}"
+                                     CustomTitle="Khách hàng" CustomIcon="HumanHandsUp"></uc:CustomButton>
+                    <uc:CustomButton Grid.Column="6" CustomButtonCommand="{Binding UserWindowCommand}"
+                                     CustomTitle="Tài khoản" CustomIcon="AccountBox"></uc:CustomButton>
                 </Grid>
             </Grid>
             <Grid Grid.Row="1">

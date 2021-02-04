@@ -111,13 +111,13 @@ create table OutputInfo
 (
 	Id nvarchar(128) primary key,
 	IdObject nvarchar(128) not null,
-	IdInputInfo nvarchar(128) not null,
+	IdOutput nvarchar(128) not null,
 	IdCustomer int not null,
 	Count int,	
 	Status nvarchar(max)
 
 	foreign key (IdObject) references Object(Id),
-	foreign key (IdInputInfo) references InputInfo(Id),
+	foreign key (IdOutput) references Output(Id),
 	foreign key (IdCustomer) references Customer(Id)
 )
 go
