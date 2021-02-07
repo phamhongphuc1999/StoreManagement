@@ -1,9 +1,10 @@
 ﻿using StoreManagement.View;
+using System.Windows;
 using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class MainViewModel: BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand UnitWindowCommand { get; set; }
@@ -28,18 +29,23 @@ namespace StoreManagement.ViewModel
 
         private void InitializeLoadedWindowCommand()
         {
-            LoadedWindowCommand = new RelayCommand<object>(
+            LoadedWindowCommand = new RelayCommand<Window>(
                 sender => { return true; }, sender =>
                 {
+                    if (sender == null) return;
+                    sender.Hide();
                     LoginWindow loginWindow = new LoginWindow();
                     loginWindow.ShowDialog();
+                    LoginViewModel loginView = loginWindow.DataContext as LoginViewModel;
+                    if (loginView.IsLogin) sender.Show();
                 });
         }
 
         private void InitializeUnitWindowCommand()
         {
             UnitWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     UnitWindow unitWindow = new UnitWindow();
                     unitWindow.ShowDialog();
                 });
@@ -48,7 +54,8 @@ namespace StoreManagement.ViewModel
         private void InitializeSuplierWindowCommand()
         {
             SuplierWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     SuplierWindow suplierWindow = new SuplierWindow();
                     suplierWindow.ShowDialog();
                 });
@@ -57,7 +64,8 @@ namespace StoreManagement.ViewModel
         private void InitializeCustomerWindowCommand()
         {
             CustomerWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     CustomerWindow customerWindow = new CustomerWindow();
                     customerWindow.ShowDialog();
                 });
@@ -66,7 +74,8 @@ namespace StoreManagement.ViewModel
         private void InitializeObjectWindowCommand()
         {
             ObjectWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     ObjectWindow objectWindow = new ObjectWindow();
                     objectWindow.ShowDialog();
                 });
@@ -75,7 +84,8 @@ namespace StoreManagement.ViewModel
         private void InitializeUserWindowCommand()
         {
             UserWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     UserWindow userWindow = new UserWindow();
                     userWindow.ShowDialog();
                 });
@@ -84,7 +94,8 @@ namespace StoreManagement.ViewModel
         private void InitializeInputWindowCommand()
         {
             InputWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     InputWindow inputWindow = new InputWindow();
                     inputWindow.ShowDialog();
                 });
@@ -93,7 +104,8 @@ namespace StoreManagement.ViewModel
         private void InitializeOutputWindowCommand()
         {
             OutputWindowCommand = new RelayCommand<object>(
-                sender => { return true; }, sender => {
+                sender => { return true; }, sender =>
+                {
                     OutputWindow outputWindow = new OutputWindow();
                     outputWindow.ShowDialog();
                 });

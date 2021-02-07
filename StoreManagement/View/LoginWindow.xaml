@@ -12,17 +12,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc="clr-namespace:StoreManagement.CustomControl"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
         Title="Login" WindowStartupLocation="CenterScreen" 
-        Name="login" Height="450" Width="800">
+        Name="loginWindow" Height="450" Width="800"
+        DataContext="{StaticResource loginViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:CustomControlBar Tag="{Binding Title, ElementName=login}"></uc:CustomControlBar>
+            <uc:CustomControlBar Tag="{Binding Title, ElementName=loginWindow}"></uc:CustomControlBar>
         </Grid>
         <materialDesign:Card Grid.Row="1" Width="600" Height="300" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid>
@@ -37,25 +39,32 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBox materialDesign:HintAssist.Hint="Username"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                    <TextBox materialDesign:HintAssist.Hint="Username" Margin="0" Padding="0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Text="{Binding Username}"></TextBox>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <PasswordBox x:Name="FloatingPasswordBox"
-                                 materialDesign:HintAssist.Hint="Password"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"></PasswordBox>
+                    <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Password"
+                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="278*"></ColumnDefinition>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="285*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="100" ToolTip="Login"
-                            Content="Login"></Button>
-                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="100" ToolTip="Register" Background="OrangeRed"
-                            Content="Exit"></Button>
+                            Width="100" ToolTip="Login" Content="Login"
+                            Command="{Binding LoginButtonCommand}" 
+                            CommandParameter="{Binding ElementName=loginWindow}" Margin="92,29,86,29"></Button>
+                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}"
+                            Width="100" ToolTip="Register" Background="OrangeRed" Content="Exit" Margin="93,29,92,29"></Button>
                 </Grid>
             </Grid>
         </materialDesign:Card>

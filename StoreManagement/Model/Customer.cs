@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,11 @@ namespace StoreManagement.Model
     [Table("Customer")]
     public class Customer
     {
+        public Customer()
+        {
+            this.OutputInfoes = new HashSet<OutputInfo>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -23,6 +29,8 @@ namespace StoreManagement.Model
         public string MoreInfo { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:d}")]
-        public DateTime ContractDate { get; set; }
+        public DateTime? ContractDate { get; set; }
+
+        public virtual ICollection<OutputInfo> OutputInfoes { get; set; }
     }
 }

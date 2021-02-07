@@ -14,12 +14,12 @@
         xmlns:local="clr-namespace:StoreManagement.View"
         xmlns:uc="clr-namespace:StoreManagement.CustomControl"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        DataContext="{StaticResource MainVM}" Name="StoreManager" Title="Store Managerment"
-        ResizeMode="NoResize" WindowStyle="None"
+        DataContext="{StaticResource mainViewModel}" Name="mainWindow" Title="Store Managerment"
+        ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" Height="450" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
@@ -27,7 +27,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <uc:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=StoreManager}"></uc:CustomControlBar>
+        <uc:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=mainWindow}"></uc:CustomControlBar>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
