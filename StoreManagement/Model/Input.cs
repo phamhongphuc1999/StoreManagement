@@ -8,11 +8,6 @@ namespace StoreManagement.Model
     [Table("Input")]
     public class Input
     {
-        public Input()
-        {
-            this.InputInfoes = new HashSet<InputInfo>();
-        }
-
         [Key]
         [MaxLength(128)]
         [Required(AllowEmptyStrings = false)]
@@ -20,7 +15,5 @@ namespace StoreManagement.Model
 
         [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? DateInput { get; set; }
-
-        public virtual ICollection<InputInfo> InputInfoes { get; set; }
     }
 }

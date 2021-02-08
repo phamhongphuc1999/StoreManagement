@@ -50,7 +50,6 @@ namespace StoreManagement.ViewModel
                 {
                     if (sender == null) return;
                     if (username == "" || password == "") return;
-                    MessageBox.Show("123");
                     IsLogin = userService.Login(Username, Password);
                     if(IsLogin) sender.Close();
                 });

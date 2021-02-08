@@ -8,11 +8,6 @@ namespace StoreManagement.Model
     [Table("Suplier")]
     public class Suplier
     {
-        public Suplier()
-        {
-            this.ObjectTables = new HashSet<ObjectTable>();
-        }
-
         [Key]
         public int Id { get; set; }
 
@@ -30,7 +25,5 @@ namespace StoreManagement.Model
 
         [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? ContractDate { get; set; }
-
-        public virtual ICollection<ObjectTable> ObjectTables { get; set; }
     }
 }

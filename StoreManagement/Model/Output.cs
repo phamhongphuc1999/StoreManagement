@@ -8,11 +8,6 @@ namespace StoreManagement.Model
     [Table("Output")]
     public class Output
     {
-        public Output()
-        {
-            this.OutputInfoes = new HashSet<OutputInfo>();
-        }
-
         [Key]
         [MaxLength(128)]
         [Required(AllowEmptyStrings = false)]
@@ -20,7 +15,5 @@ namespace StoreManagement.Model
 
         [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? DateOutput { get; set; }
-
-        public virtual ICollection<OutputInfo> OutputInfoes { get; set; }
     }
 }

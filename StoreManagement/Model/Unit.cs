@@ -7,16 +7,9 @@ namespace StoreManagement.Model
     [Table("Unit")]
     public class Unit
     {
-        public Unit()
-        {
-            this.ObjectTables = new HashSet<ObjectTable>();
-        }
-
         [Key]
         public int Id { get; set; }
 
         public string DisplayName { get; set; }
-
-        public virtual ICollection<ObjectTable> ObjectTables { get; set; }
     }
 }
