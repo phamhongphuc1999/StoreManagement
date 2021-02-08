@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,6 +14,6 @@ namespace StoreManagement.Model
         public string Id { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:d}")]
-        public DateTime DateInput { get; set; }
+        public DateTime? DateInput { get; set; }
     }
 }

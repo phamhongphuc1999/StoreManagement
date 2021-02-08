@@ -17,10 +17,13 @@ namespace StoreManagement.Data
             SqlData = new SQLData(Option.Options);
         }
 
-        public static SQLConnecter GetInstance()
+        public static SQLConnecter Instance
         {
-            if (connecter == null) connecter = new SQLConnecter(Constant.SQL_CONNECT_STRING);
-            return connecter;
+            get
+            {
+                if (connecter == null) connecter = new SQLConnecter(Constant.SQL_CONNECT_STRING);
+                return connecter;
+            }
         }
     }
 }

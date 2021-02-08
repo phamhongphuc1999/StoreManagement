@@ -24,7 +24,7 @@ namespace StoreManagement.Model
         [ForeignKey("Customer")]
         public string IdCustomer { get; set; }
 
-        public int Count { get; set; }
+        public int? Count { get; set; }
 
         public string Status { get; set; }
     }
