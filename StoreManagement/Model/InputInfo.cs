@@ -21,11 +21,11 @@ namespace StoreManagement.Model
         [Required(AllowEmptyStrings = false)]
         public string IdInput { get; set; }
 
-        public int? Count { get; set; }
+        public int Count { get; set; }
 
-        public float? InputPrice { get; set; }
+        public float InputPrice { get; set; }
 
-        public float? OutputPrice { get; set; }
+        public float OutputPrice { get; set; }
 
         public string Status { get; set; }
     }

@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
             <materialDesign:Card Grid.Row="0">
                 <WrapPanel>
-                    <TextBox materialDesign:HintAssist.Hint="Vật tư" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    <TextBox materialDesign:HintAssist.Hint="Tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5"/>
                     <TextBox materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5"/>
@@ -92,16 +92,15 @@
                     </Button>
                 </WrapPanel>
             </materialDesign:Card>
-            <materialDesign:Card Grid.Row="3">
+            <materialDesign:Card Grid.Row="2">
                 <ListView ItemsSource="{Binding list}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                            <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
-                            <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
-                            <GridViewColumn Header="Thông tin thêm" DisplayMemberBinding="{Binding MoreInfo}"></GridViewColumn>
+                            <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                            <GridViewColumn Header="Điện thoại" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
+                            <GridViewColumn Header="Thông tin thêm" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
                             <GridViewColumn Header="Ngày hợp tác" DisplayMemberBinding="{Binding ContractDate}"></GridViewColumn>
                         </GridView>
                     </ListView.View>

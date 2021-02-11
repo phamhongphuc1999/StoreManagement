@@ -1,10 +1,14 @@
-﻿using StoreManagement.View;
+﻿using StoreManagement.Data;
+using StoreManagement.Data.Services;
+using StoreManagement.Model;
+using StoreManagement.View;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class MainViewModel: BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand UnitWindowCommand { get; set; }
@@ -15,8 +19,16 @@ namespace StoreManagement.ViewModel
         public ICommand InputWindowCommand { get; set; }
         public ICommand OutputWindowCommand { get; set; }
 
+        private ObjectService objectService;
+
+        public ObservableCollection<InventoryObject> inventoryObjects;
+
         public MainViewModel()
         {
+            SQLConnecter.CreateConnection();
+            objectService = new ObjectService();
+            inventoryObjects = new ObservableCollection<InventoryObject>();
+
             InitializeLoadedWindowCommand();
             InitializeUnitWindowCommand();
             InitializeSuplierWindowCommand();
@@ -37,7 +49,11 @@ namespace StoreManagement.ViewModel
                     LoginWindow loginWindow = new LoginWindow();
                     loginWindow.ShowDialog();
                     LoginViewModel loginView = loginWindow.DataContext as LoginViewModel;
-                    if (loginView.IsLogin) sender.Show();
+                    if (loginView.IsLogin) 
+                    { 
+                        sender.Show();
+                        inventoryObjects = objectService.GetInventoryObject();
+                    }
                 });
         }
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StoreManagement
 {
-    public class Utilities
+    public static class Utilities
     {
         public static string MD5Hash(string input)
         {

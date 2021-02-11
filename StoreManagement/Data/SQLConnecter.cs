@@ -25,5 +25,10 @@ namespace StoreManagement.Data
                 return connecter;
             }
         }
+
+        public static void CreateConnection()
+        {
+            if (connecter == null) connecter = new SQLConnecter(Constant.SQL_CONNECT_STRING);
+        }
     }
 }

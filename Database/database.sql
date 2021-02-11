@@ -1,7 +1,7 @@
-create database StoreManagement5
+create database StoreManagement
 go
 
-use StoreManagement5
+use StoreManagement
 create table Unit
 (
 	Id int identity(1,1) primary key,
@@ -67,7 +67,7 @@ create table Users
 (
 	Id int identity(1,1) primary key,
 	DisplayName nvarchar(max),
-	UserName nvarchar(100),
+	Username nvarchar(100),
 	Password nvarchar(max),
 	IdRole int not null
 
@@ -104,8 +104,8 @@ values(N'inputinfo1', N'object1', N'input1', 100, 100000, 120000, N''),
       (N'inputinfo2', N'object2', N'input2', 500, 500000, 520000, N''),
 	  (N'inputinfo3', N'object3', N'input3', 600, 600000, 620000, N''),
 	  (N'inputinfo4', N'object4', N'input4', 450, 50000, 55000, N''),
-	  (N'inputinfo1', N'object2', N'input1', 600, 550000, 560000, N''),
-	  (N'inputinfo3', N'object2', N'input2', 1200, 600000, 550000, N'')
+	  (N'inputinfo5', N'object2', N'input1', 600, 550000, 560000, N''),
+	  (N'inputinfo6', N'object2', N'input2', 1200, 600000, 550000, N'')
 
 create table Output
 (

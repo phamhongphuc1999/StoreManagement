@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class LoginViewModel: BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         private UserService userService;
 
@@ -48,10 +48,23 @@ namespace StoreManagement.ViewModel
             LoginButtonCommand = new RelayCommand<Window>(
                 sender => { return true; }, sender =>
                 {
-                    if (sender == null) return;
-                    if (username == "" || password == "") return;
+                    if (sender == null)
+                    {
+                        MessageBox.Show("Có lỗi xảy ra", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (username == "" || password == "")
+                    {
+                        MessageBox.Show("Yêu cầu nhập đầy đủ các trường", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
                     IsLogin = userService.Login(Username, Password);
-                    if (IsLogin) sender.Close();
+                    if (!IsLogin)
+                    {
+                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu sai", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    sender.Close();
                 });
         }
 

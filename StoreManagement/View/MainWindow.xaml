@@ -92,12 +92,12 @@
             </Grid>
             <materialDesign:Card Grid.Row="3">
                 <Grid>
-                    <ListView>
+                    <ListView ItemsSource="{Binding inventoryObjects}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT"></GridViewColumn>
-                                <GridViewColumn Header="Tên vật tư"></GridViewColumn>
-                                <GridViewColumn Header="Lượng tồn"></GridViewColumn>
+                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Stt}"></GridViewColumn>
+                                <GridViewColumn Header="Tên vật tư" DisplayMemberBinding="{Binding objectTable.DisplayName}"></GridViewColumn>
+                                <GridViewColumn Header="Lượng tồn" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

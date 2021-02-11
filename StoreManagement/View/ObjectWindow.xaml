@@ -31,8 +31,6 @@
                 <WrapPanel>
                     <TextBox materialDesign:HintAssist.Hint="Vật tư" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5"/>
-                    <TextBox materialDesign:HintAssist.Hint="Đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        VerticalAlignment="Center" Margin="5"/>
                     <TextBox materialDesign:HintAssist.Hint="Nhà cung cấp" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5"/>
                     <TextBox materialDesign:HintAssist.Hint="QR Code" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -94,10 +92,8 @@
                 <ListView ItemsSource="{Binding list}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                            <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                            <GridViewColumn Header="Đơn vị đo" DisplayMemberBinding="{Binding Unit.DisplayName}"></GridViewColumn>
-                            <GridViewColumn Header="Nhà cung cấp" DisplayMemberBinding="{Binding Suplier.DisplayName}"></GridViewColumn>
+                            <GridViewColumn Header="Vật tư" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                            <GridViewColumn Header="Nhà cung cấp" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
                             <GridViewColumn Header="QRCode" DisplayMemberBinding="{Binding QRCode}"></GridViewColumn>
                             <GridViewColumn Header="BarCode" DisplayMemberBinding="{Binding BarCode}"></GridViewColumn>
                         </GridView>
