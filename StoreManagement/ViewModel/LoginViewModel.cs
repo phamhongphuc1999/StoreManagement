@@ -1,11 +1,11 @@
-﻿using StoreManagement.Data.Service;
+﻿using StoreManagement.Data.Services;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel: BaseViewModel
     {
         private UserService userService;
 
@@ -51,7 +51,7 @@ namespace StoreManagement.ViewModel
                     if (sender == null) return;
                     if (username == "" || password == "") return;
                     IsLogin = userService.Login(Username, Password);
-                    if(IsLogin) sender.Close();
+                    if (IsLogin) sender.Close();
                 });
         }
 

@@ -7,30 +7,29 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:CustomControl="clr-namespace:StoreManagement.CustomControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
-        xmlns:uc="clr-namespace:StoreManagement.CustomControl"
-        mc:Ignorable="d" Name="suplierWindow" WindowStyle="None" ResizeMode="NoResize"
-        Title="Vật tư" Height="450" Width="800">
+        mc:Ignorable="d" Name="suplierWindow" WindowStyle="None"
+        Title="Nhà cung cấp" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <uc:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=suplierWindow}"></uc:CustomControlBar>
+        <CustomControl:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=suplierWindow, Path=Title}"></CustomControl:CustomControlBar>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <!---elelement binding-->
             <materialDesign:Card Grid.Row="0" Margin="5">
                 <WrapPanel>
-                    <TextBox materialDesign:HintAssist.Hint="Vật tư" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    <TextBox materialDesign:HintAssist.Hint="Tên nhà cung cấp" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5" Text="{Binding DisplayName}"/>
                     <TextBox materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         VerticalAlignment="Center" Margin="5" Text="{Binding Address}"/>
@@ -101,7 +100,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                            <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                            <GridViewColumn Header="Tên nhà cung cấp" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
                             <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
                             <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>

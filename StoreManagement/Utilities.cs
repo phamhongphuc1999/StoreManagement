@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StoreManagement
 {
-    public static class Utilities
+    public class Utilities
     {
         public static string MD5Hash(string input)
         {
@@ -23,6 +23,12 @@ namespace StoreManagement
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             return Convert.ToBase64String(plainTextBytes);
+        }
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
+            return Encoding.UTF8.GetString(base64EncodedBytes);
         }
     }
 }

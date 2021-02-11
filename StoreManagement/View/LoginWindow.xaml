@@ -7,66 +7,73 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:CustomControl="clr-namespace:StoreManagement.CustomControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:uc="clr-namespace:StoreManagement.CustomControl"
-        mc:Ignorable="d" ResizeMode="NoResize" WindowStyle="None"
-        Title="Login" WindowStartupLocation="CenterScreen" 
-        Name="loginWindow" Height="450" Width="800"
+        mc:Ignorable="d" Name="loginWindow" WindowStyle="None"
+        Title="Đăng nhập" Height="450" Width="800"
         DataContext="{StaticResource loginViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:CustomControlBar Tag="{Binding Title, ElementName=loginWindow}"></uc:CustomControlBar>
-        </Grid>
-        <materialDesign:Card Grid.Row="1" Width="600" Height="300" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid>
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Setter Property="Margin" Value="15"></Setter>
-                    </Style>
-                </Grid.Style>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <TextBox materialDesign:HintAssist.Hint="Username" Margin="0" Padding="0"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Text="{Binding Username}"></TextBox>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <PasswordBox x:Name="FloatingPasswordBox" materialDesign:HintAssist.Hint="Password"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=FloatingPasswordBox}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="278*"></ColumnDefinition>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="285*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="100" ToolTip="Login" Content="Login"
-                            Command="{Binding LoginButtonCommand}" 
-                            CommandParameter="{Binding ElementName=loginWindow}" Margin="92,29,86,29"></Button>
-                    <Button Grid.Column="2" Style="{StaticResource MaterialDesignRaisedButton}"
-                            Width="100" ToolTip="Register" Background="OrangeRed" Content="Exit" Margin="93,29,92,29"></Button>
-                </Grid>
+        <CustomControl:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=loginWindow, Path=Title}"></CustomControl:CustomControlBar>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           HorizontalAlignment="Center" Padding="0 20 0 20">
+                    Đăng nhập với StoreManagement
+                </TextBlock>
             </Grid>
-        </materialDesign:Card>
+            <materialDesign:Card Grid.Row="1" Margin="100 20 100 20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Margin="30 0 30 0" materialDesign:HintAssist.Hint="Nhập tên đăng nhập"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" />
+                    <PasswordBox Grid.Row="1" Margin="30 0 30 0" x:Name="FloatingPasswordBox"
+                        materialDesign:HintAssist.Hint="Nhập mật khẩu"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                    <Button Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}"
+                        Margin="30 0 30 0" Height="40" materialDesign:ButtonAssist.CornerRadius="10">
+                        <TextBlock Text="Đăng nhập" />
+                    </Button>
+                    <Grid Grid.Row="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Separator Grid.Row="0"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}"
+                                Margin="30 0 30 0" Height="50">
+                                Quên mật khẩu
+                            </Button>
+                            <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}"
+                                Margin="30 0 30 0" Height="50">
+                                Tạo tài khoản
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </Window>

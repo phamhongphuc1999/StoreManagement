@@ -4,44 +4,50 @@ using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class ControlBarViewModel: BaseViewModel
+    public class CustomControlBarViewModel: BaseViewModel
     {
         public ICommand CloseWindowCommand { get; set; }
         public ICommand MaximizeWindowCommand { get; set; }
         public ICommand MinimizeWindowCommand { get; set; }
         public ICommand MouseLeftButtonDownCommand { get; set; }
 
-        public ControlBarViewModel()
+        public CustomControlBarViewModel()
         {
-            InitializeCloseCommand();
-            InitializeMaximizeCommand();
-            InitializeMinimizeCommand();
+            InitializeCloseWindowCommand();
+            InitializeMaximizeWindowCommand();
+            InitializeMinimizeWindowCommand();
             InitializeMouseLeftButtonDownCommand();
         }
 
-        private void InitializeCloseCommand()
+        private FrameworkElement GetRootParent(UserControl control)
+        {
+            FrameworkElement parent = control;
+            while (parent.Parent != null)
+                parent = parent.Parent as FrameworkElement;
+            return parent;
+        }
+
+        private void InitializeCloseWindowCommand()
         {
             CloseWindowCommand = new RelayCommand<UserControl>(
                 sender =>
                 {
-                    return sender == null ? false : true;
-                },
-                sender =>
+                    return sender != null;
+                }, sender =>
                 {
-                    FrameworkElement root = GetRootParent(sender);
-                    Window window = root as Window;
-                    if (window != null) window.Close();
+                    FrameworkElement parent = GetRootParent(sender);
+                    Window rootWindow = parent as Window;
+                    if (rootWindow != null) rootWindow.Close();
                 });
         }
 
-        private void InitializeMaximizeCommand()
+        private void InitializeMaximizeWindowCommand()
         {
             MaximizeWindowCommand = new RelayCommand<UserControl>(
                 sender =>
                 {
-                    return sender == null ? false : true;
-                },
-                sender =>
+                    return sender != null;
+                }, sender =>
                 {
                     FrameworkElement root = GetRootParent(sender);
                     Window window = root as Window;
@@ -53,7 +59,7 @@ namespace StoreManagement.ViewModel
                 });
         }
 
-        private void InitializeMinimizeCommand()
+        private void InitializeMinimizeWindowCommand()
         {
             MinimizeWindowCommand = new RelayCommand<UserControl>(
                 sender =>
@@ -81,14 +87,6 @@ namespace StoreManagement.ViewModel
                     Window window = root as Window;
                     if (window != null) window.DragMove();
                 });
-        }
-
-        private FrameworkElement GetRootParent(UserControl control)
-        {
-            FrameworkElement parent = control;
-            while (parent.Parent != null)
-                parent = parent.Parent as FrameworkElement;
-            return parent;
         }
     }
 }

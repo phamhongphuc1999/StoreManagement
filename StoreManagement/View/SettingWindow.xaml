@@ -1,4 +1,4 @@
-﻿<Window x:Class="StoreManagement.View.InputWindow"
+﻿<Window x:Class="StoreManagement.View.SettingWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,14 +13,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
-        mc:Ignorable="d" WindowStyle="None" Name="inputWindow"
-        Title="Nhập" Height="450" Width="800">
+        mc:Ignorable="d" Name="settingWindow" WindowStyle="None"
+        Title="Cài đặt" Height="450" Width="800"
+        DataContext="{StaticResource settingViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <CustomControl:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=inputWindow}"></CustomControl:CustomControlBar>
-
+        <CustomControl:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=settingWindow, Path=Title}"></CustomControl:CustomControlBar>
     </Grid>
 </Window>

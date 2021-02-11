@@ -7,13 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CustomControl\CustomButton.xaml.cs">
+    <Compile Update="CustomControl\CustomButton1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="CustomControl\CustomControlBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CustomControl\FilterDetailCard.xaml.cs">
+    <Compile Update="CustomControl\CustomFilterDetailCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CustomerWindow.xaml.cs">
@@ -34,6 +34,9 @@
     <Compile Update="View\OutputWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SettingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SuplierWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -45,16 +48,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="CustomControl\CustomButton.xaml">
+    <Page Update="CustomControl\CustomButton1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CustomControl\CustomControlBar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CustomControl\FilterDetailCard.xaml">
+    <Page Update="CustomControl\CustomFilterDetailCard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\MainResources.xaml">
+    <Page Update="Resources\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CustomerWindow.xaml">
@@ -73,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\OutputWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SettingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SuplierWindow.xaml">

@@ -4,12 +4,12 @@ using System.Windows.Controls;
 namespace StoreManagement.CustomControl
 {
     /// <summary>
-    /// Interaction logic for FilterDetailCard.xaml
+    /// Interaction logic for CustomFilterDetailCard.xaml
     /// </summary>
-    public partial class FilterDetailCard : UserControl
+    public partial class CustomFilterDetailCard : UserControl
     {
         private static DependencyProperty CustomTitleProperty = DependencyProperty.Register(
-            "CustomTitle", typeof(string), typeof(FilterDetailCard));
+            "CustomTitle", typeof(string), typeof(CustomFilterDetailCard));
         public string CustomTitle
         {
             get { return (string)GetValue(CustomTitleProperty); }
@@ -20,7 +20,7 @@ namespace StoreManagement.CustomControl
         }
 
         private static DependencyProperty InfoProperty = DependencyProperty.Register(
-            "Info", typeof(string), typeof(FilterDetailCard));
+            "Info", typeof(string), typeof(CustomFilterDetailCard));
         public string Info
         {
             get { return (string)GetValue(InfoProperty); }
@@ -30,10 +30,10 @@ namespace StoreManagement.CustomControl
             }
         }
 
-        public FilterDetailCard()
+        public CustomFilterDetailCard()
         {
             InitializeComponent();
-            CustomTitle = "FilterDetailCard";
+            CustomTitle = "CustomFilterDetailCard";
             Info = "customUserControl";
         }
     }

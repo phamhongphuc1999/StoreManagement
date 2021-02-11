@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace StoreManagement.ViewModel
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel: BaseViewModel
     {
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand UnitWindowCommand { get; set; }
