@@ -19,10 +19,31 @@
     <Compile Update="View\CustomerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\InputWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ObjectWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\OutputWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SettingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SuplierWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UnitWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -42,10 +63,31 @@
     <Page Update="View\CustomerWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\InputWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\ObjectWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\OutputWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\SettingWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SuplierWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UnitWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

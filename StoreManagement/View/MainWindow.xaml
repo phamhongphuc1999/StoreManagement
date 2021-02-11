@@ -13,8 +13,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d" Name="mainWindow" WindowStyle="None" ResizeMode="NoResize"
         Title="Quản lý kho" Height="450" Width="800" DataContext="{StaticResource mainViewModel}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -65,12 +71,10 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <DatePicker Width="140" Grid.Column="0"
-                    materialDesign:HintAssist.Hint="Ngày bắt đầu"
-                    Style="{StaticResource MaterialDesignFilledDatePicker}" />
-                <DatePicker Width="140" Grid.Column="1"
-                    materialDesign:HintAssist.Hint="Ngày kết thúc"
-                    Style="{StaticResource MaterialDesignFilledDatePicker}" />
+                <DatePicker Grid.Column="0" Width="100" materialDesign:HintAssist.Hint="Ngày bắt đầu"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <DatePicker Grid.Column="1" Width="100" materialDesign:HintAssist.Hint="Ngày kết thúc"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"
                     Width="100" Grid.Column="2">
                     Lọc
