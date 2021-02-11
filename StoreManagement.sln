@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement", "StoreManagement\StoreManagement.csproj", "{AE930789-4504-43C6-BF38-E87492E5D4AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement", "StoreManagement\StoreManagement.csproj", "{0AAFAA7B-B5DA-4AC7-B54B-BC3FDEE927A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AE930789-4504-43C6-BF38-E87492E5D4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE930789-4504-43C6-BF38-E87492E5D4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE930789-4504-43C6-BF38-E87492E5D4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE930789-4504-43C6-BF38-E87492E5D4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AAFAA7B-B5DA-4AC7-B54B-BC3FDEE927A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAFAA7B-B5DA-4AC7-B54B-BC3FDEE927A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAFAA7B-B5DA-4AC7-B54B-BC3FDEE927A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAFAA7B-B5DA-4AC7-B54B-BC3FDEE927A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {98ECECEB-B081-4E13-A6EE-E56BE063B643}
+		SolutionGuid = {EE043780-B8EE-426F-A948-75979DF797A2}
 	EndGlobalSection
 EndGlobal

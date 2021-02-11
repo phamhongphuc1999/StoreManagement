@@ -3,5 +3,5 @@
                     xmlns:local="clr-namespace:StoreManagement.Resources"
                     xmlns:viewmodel="clr-namespace:StoreManagement.ViewModel">
     <viewmodel:MainViewModel x:Key="mainViewModel"></viewmodel:MainViewModel>
-    <viewmodel:LoginViewModel x:Key="loginViewModel"></viewmodel:LoginViewModel>
+    <viewmodel:SettingViewModel x:Key="settingViewModel"></viewmodel:SettingViewModel>
 </ResourceDictionary>

@@ -1,23 +1,23 @@
-﻿<UserControl x:Class="StoreManagement.CustomControl.CustomButton"
+﻿<UserControl x:Class="StoreManagement.CustomControl.CustomButton1"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StoreManagement.CustomControl"
-             mc:Ignorable="d" x:Name="customButton"
+             mc:Ignorable="d" x:Name="customButton1"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Button Command="{Binding CustomButtonCommand, ElementName=customButton}" ToolTip="{Binding CustomTitle, ElementName=customButton}">
+    <Button Command="{Binding CustomButtonCommand, ElementName=customButton1}" ToolTip="{Binding CustomTitle, ElementName=customButton}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock Text="{Binding CustomTitle, ElementName=customButton}" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="{Binding CustomTitle, ElementName=customButton1}" HorizontalAlignment="Center"></TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <materialDesign:PackIcon Width="24" Height="24" Kind="{Binding CustomIcon, ElementName=customButton}" HorizontalAlignment="Center" />
+                <materialDesign:PackIcon Width="24" Height="24" Kind="{Binding CustomIcon, ElementName=customButton1}" HorizontalAlignment="Center" />
             </Grid>
         </Grid>
     </Button>

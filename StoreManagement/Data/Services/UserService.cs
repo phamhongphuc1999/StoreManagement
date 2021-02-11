@@ -1,7 +1,7 @@
 ﻿using StoreManagement.Model;
 using System.Linq;
 
-namespace StoreManagement.Data.Service
+namespace StoreManagement.Data.Services
 {
     public class UserService
     {

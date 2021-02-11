@@ -5,12 +5,12 @@ using System.Windows.Input;
 namespace StoreManagement.CustomControl
 {
     /// <summary>
-    /// Interaction logic for CustomButton.xaml
+    /// Interaction logic for CustomButton1.xaml
     /// </summary>
-    public partial class CustomButton : UserControl
+    public partial class CustomButton1 : UserControl
     {
         private static DependencyProperty CustomTitleProperty = DependencyProperty.Register(
-            "CustomTitle", typeof(string), typeof(CustomButton));
+            "CustomTitle", typeof(string), typeof(CustomButton1));
         public string CustomTitle
         {
             get { return (string)GetValue(CustomTitleProperty); }
@@ -21,7 +21,7 @@ namespace StoreManagement.CustomControl
         }
 
         private static DependencyProperty CustomIconProperty = DependencyProperty.Register(
-            "CustomIcon", typeof(string), typeof(CustomButton));
+            "CustomIcon", typeof(string), typeof(CustomButton1));
         public string CustomIcon
         {
             get { return (string)GetValue(CustomIconProperty); }
@@ -31,9 +31,8 @@ namespace StoreManagement.CustomControl
             }
         }
 
-
         public static DependencyProperty CustomButtonCommandProperty = DependencyProperty.Register(
-            "CustomButtonCommand", typeof(ICommand), typeof(CustomButton));
+            "CustomButtonCommand", typeof(ICommand), typeof(CustomButton1));
 
         public ICommand CustomButtonCommand
         {
@@ -44,7 +43,7 @@ namespace StoreManagement.CustomControl
             }
         }
 
-        public CustomButton()
+        public CustomButton1()
         {
             InitializeComponent();
             CustomTitle = "CustomButton";

@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace StoreManagement.View
 {
     /// <summary>
-    /// Interaction logic for ObjectWindow.xaml
+    /// Interaction logic for SettingWindow.xaml
     /// </summary>
-    public partial class ObjectWindow : Window
+    public partial class SettingWindow : Window
     {
-        public ObjectWindow()
+        public SettingWindow()
         {
             InitializeComponent();
         }

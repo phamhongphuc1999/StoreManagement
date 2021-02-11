@@ -1,4 +1,5 @@
 ﻿using StoreManagement.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace StoreManagement.CustomControl
@@ -8,12 +9,13 @@ namespace StoreManagement.CustomControl
     /// </summary>
     public partial class CustomControlBar : UserControl
     {
-        public ControlBarViewModel controlBarViewModel { get; set; }
+        public CustomControlBarViewModel customControlBarViewModel { get; set; }
 
         public CustomControlBar()
         {
             InitializeComponent();
-            this.DataContext = controlBarViewModel = new ControlBarViewModel();
+            customControlBarViewModel = new CustomControlBarViewModel();
+            this.DataContext = customControlBarViewModel;
         }
     }
 }

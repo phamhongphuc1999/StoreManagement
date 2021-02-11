@@ -1,4 +1,4 @@
-﻿<Window x:Class="StoreManagement.View.InputWindow"
+﻿<Window x:Class="StoreManagement.View.SettingWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -7,20 +7,20 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        xmlns:uc="clr-namespace:StoreManagement.CustomControl"
+        xmlns:CustomControl="clr-namespace:StoreManagement.CustomControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
-        mc:Ignorable="d" Name="inputWindow" WindowStyle="None"
-        Title="Nhập kho" Height="450" Width="800">
+        mc:Ignorable="d" Name="settingWindow" WindowStyle="None"
+        Title="Cài đặt" Height="450" Width="800"
+        DataContext="{StaticResource settingViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <uc:CustomControlBar Grid.Row="0" Tag="{Binding Title, ElementName=inputWindow}"></uc:CustomControlBar>
-        
+        <CustomControl:CustomControlBar Grid.Row="0" Tag="{Binding ElementName=settingWindow, Path=Title}"></CustomControl:CustomControlBar>
     </Grid>
 </Window>
