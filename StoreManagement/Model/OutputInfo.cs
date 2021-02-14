@@ -22,7 +22,7 @@ namespace StoreManagement.Model
         public string IdOutput { get; set; }
 
         [ForeignKey("Customer")]
-        public string IdCustomer { get; set; }
+        public int IdCustomer { get; set; }
 
         public int Count { get; set; }
 

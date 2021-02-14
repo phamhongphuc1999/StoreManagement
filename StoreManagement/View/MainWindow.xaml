@@ -72,9 +72,11 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <DatePicker Grid.Column="0" Width="100" materialDesign:HintAssist.Hint="Ngày bắt đầu"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                            SelectedDate="{Binding StartTime}"/>
                 <DatePicker Grid.Column="1" Width="100" materialDesign:HintAssist.Hint="Ngày kết thúc"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
+                            SelectedDate="{Binding EndTime}"/>
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"
                     Width="100" Grid.Column="2">
                     Lọc
@@ -86,18 +88,21 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <CustomControl:CustomFilterDetailCard Grid.Column="0" CustomTitle="Lượng nhập" Info="1234"></CustomControl:CustomFilterDetailCard>
-                <CustomControl:CustomFilterDetailCard Grid.Column="1" CustomTitle="Lượng xuất" Info="1234"></CustomControl:CustomFilterDetailCard>
-                <CustomControl:CustomFilterDetailCard Grid.Column="2" CustomTitle="Tồn kho" Info="1234"></CustomControl:CustomFilterDetailCard>
+                <CustomControl:CustomFilterDetailCard Grid.Column="0" CustomTitle="Lượng nhập"
+                                                      Info="{Binding InputCount}"></CustomControl:CustomFilterDetailCard>
+                <CustomControl:CustomFilterDetailCard Grid.Column="1" CustomTitle="Lượng xuất"
+                                                      Info="{Binding OutputCount}"></CustomControl:CustomFilterDetailCard>
+                <CustomControl:CustomFilterDetailCard Grid.Column="2" CustomTitle="Tồn kho"
+                                                      Info="{Binding InventoryCount}"></CustomControl:CustomFilterDetailCard>
             </Grid>
-            <materialDesign:Card Grid.Row="3">
+            <materialDesign:Card Grid.Row="3" Name="listViewGrid">
                 <Grid>
-                    <ListView ItemsSource="{Binding inventoryObjects}">
+                    <ListView HorizontalAlignment="Stretch" ItemsSource="{Binding InventoryObjects}">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="STT" DisplayMemberBinding="{Binding Stt}"></GridViewColumn>
-                                <GridViewColumn Header="Tên vật tư" DisplayMemberBinding="{Binding objectTable.DisplayName}"></GridViewColumn>
-                                <GridViewColumn Header="Lượng tồn" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
+                                <GridViewColumn  Header="STT" DisplayMemberBinding="{Binding Stt}"></GridViewColumn>
+                                <GridViewColumn Header="Tên vật tư" DisplayMemberBinding="{Binding ObjectEntity.DisplayName}"></GridViewColumn>
+                                <GridViewColumn Header="Lượng tồn" DisplayMemberBinding="{Binding InventoryCount}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>

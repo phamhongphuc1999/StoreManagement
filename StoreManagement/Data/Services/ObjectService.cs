@@ -14,22 +14,24 @@ namespace StoreManagement.Data.Services
         {
             database = SQLConnecter.Instance.SqlData;
         }
-        public ObservableCollection<InventoryObject> GetInventoryObject()
+        public ObservableCollection<InventoryObject> GetInventoryObjects()
         {
             int Stt = 0;
             List<ObjectTable> objectTables = database.ObjectTables.ToList();
             IEnumerable<InventoryObject> result = objectTables.Select(x =>
             {
                 List<InputInfo> inputInfos = database.InputInfos.Where(info => info.IdObject.Equals(x.Id)).ToList();
-                List<OutputInfo> outputInfos = database.OutputInfos.Where(output => output.IdObject.Equals(x.Id)).ToList();
+                List<OutputInfo> outputInfos = database.OutputInfos.Where(info => info.IdObject.Equals(x.Id)).ToList();
                 int inputCount = 0, outputCount = 0;
                 inputInfos.ForEach(x => inputCount += x.Count);
                 outputInfos.ForEach(x => outputCount += x.Count);
                 return new InventoryObject
                 {
-                    objectTable = x,
+                    ObjectEntity = x,
                     Stt = ++Stt,
-                    Count = inputCount - outputCount
+                    Input = inputCount,
+                    Output = outputCount,
+                    InventoryCount = inputCount - outputCount
                 };
             });
             return new ObservableCollection<InventoryObject>(result);
@@ -60,9 +62,11 @@ namespace StoreManagement.Data.Services
                 outputInfos.ForEach(x => outputCount += x.Count);
                 return new InventoryObject
                 {
-                    objectTable = x,
+                    ObjectEntity = x,
                     Stt = ++Stt,
-                    Count = inputCount - outputCount
+                    Input = inputCount,
+                    Output = outputCount,
+                    InventoryCount = inputCount - outputCount
                 };
             });
             return new ObservableCollection<InventoryObject>(result);

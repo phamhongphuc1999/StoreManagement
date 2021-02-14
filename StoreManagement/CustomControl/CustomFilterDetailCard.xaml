@@ -16,16 +16,10 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Margin="16 16 16 4" Text="{Binding CustomTitle, ElementName=customFilterDetailCard}"
-                Style="{StaticResource MaterialDesignHeadline5TextBlock}">
+                Style="{StaticResource MaterialDesignHeadline5TextBlock}" HorizontalAlignment="Center">
             </TextBlock>
-            <materialDesign:PopupBox Grid.Row="0" HorizontalAlignment="Right" Padding="2 0 2 0">
-                <StackPanel>
-                    <Button Content="More" />
-                    <Button Content="Options" />
-                </StackPanel>
-            </materialDesign:PopupBox>
             <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
-            <TextBlock Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Left"
+            <TextBlock Grid.Row="2" Margin="16 0 16 8" VerticalAlignment="Center" HorizontalAlignment="Center"
                 Style="{StaticResource MaterialDesignBody2TextBlock}"
                        Text="{Binding Info, ElementName=customFilterDetailCard}">
             </TextBlock>

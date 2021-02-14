@@ -23,9 +23,9 @@ namespace StoreManagement.Model
 
         public int Count { get; set; }
 
-        public float InputPrice { get; set; }
+        public double InputPrice { get; set; }
 
-        public float OutputPrice { get; set; }
+        public double OutputPrice { get; set; }
 
         public string Status { get; set; }
     }

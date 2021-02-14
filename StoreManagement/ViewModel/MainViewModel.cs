@@ -2,6 +2,7 @@
 using StoreManagement.Data.Services;
 using StoreManagement.Model;
 using StoreManagement.View;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -18,16 +19,92 @@ namespace StoreManagement.ViewModel
         public ICommand UserWindowCommand { get; set; }
         public ICommand InputWindowCommand { get; set; }
         public ICommand OutputWindowCommand { get; set; }
+        public ICommand FilterButtonCommand { get; set; }
 
         private ObjectService objectService;
 
-        public ObservableCollection<InventoryObject> inventoryObjects;
+        private ObservableCollection<InventoryObject> inventoryObjects;
+        public ObservableCollection<InventoryObject> InventoryObjects
+        {
+            get { return inventoryObjects; }
+            set
+            {
+                inventoryObjects = value;
+                int _inputCount = 0, _outputCount = 0;
+                foreach(InventoryObject item in inventoryObjects)
+                {
+                    _inputCount += item.Input;
+                    _outputCount += item.Output;
+                }
+                InputCount = _inputCount;
+                OutputCount = _outputCount;
+                InventoryCount = InputCount - OutputCount;
+                OnPropertyChanged();
+            }
+        }
+
+        private int inputCount;
+        public int InputCount
+        {
+            get { return inputCount; }
+            set
+            {
+                inputCount = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int outputCount;
+        public int OutputCount
+        {
+            get { return outputCount; }
+            set
+            {
+                outputCount = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int inventoryCount;
+        public int InventoryCount
+        {
+            get { return inventoryCount; }
+            set
+            {
+                inventoryCount = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DateTime startTime;
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set
+            {
+                startTime = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DateTime endTime;
+        public DateTime EndTime
+        {
+            get { return endTime; }
+            set
+            {
+                endTime = value;
+                OnPropertyChanged();
+            }
+        }
 
         public MainViewModel()
         {
             SQLConnecter.CreateConnection();
             objectService = new ObjectService();
-            inventoryObjects = new ObservableCollection<InventoryObject>();
+            InventoryObjects = new ObservableCollection<InventoryObject>();
+
+            StartTime = DateTime.MinValue; EndTime = DateTime.MaxValue;
 
             InitializeLoadedWindowCommand();
             InitializeUnitWindowCommand();
@@ -37,6 +114,7 @@ namespace StoreManagement.ViewModel
             InitializeUserWindowCommand();
             InitializeInputWindowCommand();
             InitializeOutputWindowCommand();
+            InitializeFilterButtonCommand();
         }
 
         private void InitializeLoadedWindowCommand()
@@ -49,10 +127,10 @@ namespace StoreManagement.ViewModel
                     LoginWindow loginWindow = new LoginWindow();
                     loginWindow.ShowDialog();
                     LoginViewModel loginView = loginWindow.DataContext as LoginViewModel;
-                    if (loginView.IsLogin) 
-                    { 
+                    if (loginView.IsLogin)
+                    {
                         sender.Show();
-                        inventoryObjects = objectService.GetInventoryObject();
+                        InventoryObjects = objectService.GetInventoryObjects();
                     }
                 });
         }
@@ -124,6 +202,15 @@ namespace StoreManagement.ViewModel
                 {
                     OutputWindow outputWindow = new OutputWindow();
                     outputWindow.ShowDialog();
+                });
+        }
+
+        private void InitializeFilterButtonCommand()
+        {
+            FilterButtonCommand = new RelayCommand<object>(
+                sender => { return true; }, sender =>
+                {
+                    inventoryObjects = objectService.GetInventoryObjects(StartTime, EndTime);
                 });
         }
     }

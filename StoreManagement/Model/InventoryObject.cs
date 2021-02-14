@@ -2,8 +2,10 @@
 {
     public class InventoryObject
     {
-        public int Stt;
-        public ObjectTable objectTable;
-        public int Count;
+        public int Stt { get; set; }
+        public ObjectTable ObjectEntity { get; set; }
+        public int Input { get; set; }
+        public int Output { get; set; }
+        public int InventoryCount { get; set; }
     }
 }
