@@ -78,6 +78,7 @@
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" 
                             SelectedDate="{Binding EndTime}"/>
                 <Button  Style="{StaticResource MaterialDesignRaisedButton}"
+                         Command="{Binding FilterButtonCommand}"
                     Width="100" Grid.Column="2">
                     Lọc
                 </Button>

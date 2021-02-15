@@ -104,7 +104,8 @@ namespace StoreManagement.ViewModel
             objectService = new ObjectService();
             InventoryObjects = new ObservableCollection<InventoryObject>();
 
-            StartTime = DateTime.MinValue; EndTime = DateTime.MaxValue;
+            StartTime = DateTime.Now;
+            EndTime = DateTime.Now;
 
             InitializeLoadedWindowCommand();
             InitializeUnitWindowCommand();
@@ -210,7 +211,7 @@ namespace StoreManagement.ViewModel
             FilterButtonCommand = new RelayCommand<object>(
                 sender => { return true; }, sender =>
                 {
-                    inventoryObjects = objectService.GetInventoryObjects(StartTime, EndTime);
+                    InventoryObjects = objectService.GetInventoryObjects(StartTime, EndTime);
                 });
         }
     }

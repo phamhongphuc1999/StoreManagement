@@ -3,13 +3,10 @@ using System.Linq;
 
 namespace StoreManagement.Data.Services
 {
-    public class UserService
+    public class UserService: BaseService
     {
-        private SQLData database;
-
-        public UserService()
+        public UserService(): base()
         {
-            database = SQLConnecter.Instance.SqlData;
         }
 
         public bool Login(string username, string password)

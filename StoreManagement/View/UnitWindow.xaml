@@ -14,7 +14,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
         mc:Ignorable="d" Name="unitWindow" WindowStyle="None"
-        Title="Đơn vị đo" Height="450" Width="800">
+        Title="Đơn vị đo" Height="450" Width="800"
+        DataContext="{StaticResource unitViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -30,13 +31,14 @@
             <materialDesign:Card Grid.Row="0">
                 <WrapPanel>
                     <TextBox materialDesign:HintAssist.Hint="Đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        VerticalAlignment="Center" Margin="5"/>
+                        VerticalAlignment="Center" Margin="5" 
+                        Text="{Binding DisplayUnitName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </WrapPanel>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="1">
                 <WrapPanel>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Width="100" Margin="5" Command="{Binding AddCommand}">
+                            Width="100" Margin="5" Command="{Binding AddUnitCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -51,7 +53,7 @@
                         </Grid>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Width="100" Margin="5" Command="{Binding EditCommand}">
+                            Width="100" Margin="5" Command="{Binding EditUnitCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -66,7 +68,7 @@
                         </Grid>
                     </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                            Width="100" Margin="5" Command="{Binding DeleteCommand}">
+                            Width="100" Margin="5" Command="{Binding DeleteUnitCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -83,7 +85,7 @@
                 </WrapPanel>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="2">
-                <ListView ItemsSource="{Binding list}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                <ListView ItemsSource="{Binding UnitList}" SelectedItem="{Binding SelectedUnitItem, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>

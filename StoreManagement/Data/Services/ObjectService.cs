@@ -6,14 +6,12 @@ using System.Linq;
 
 namespace StoreManagement.Data.Services
 {
-    public class ObjectService
+    public class ObjectService: BaseService
     {
-        private SQLData database;
-
-        public ObjectService()
+        public ObjectService(): base()
         {
-            database = SQLConnecter.Instance.SqlData;
         }
+
         public ObservableCollection<InventoryObject> GetInventoryObjects()
         {
             int Stt = 0;
