@@ -57,6 +57,9 @@
     <Page Update="CustomControl\CustomFilterDetailCard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\GlobalStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Resources\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>

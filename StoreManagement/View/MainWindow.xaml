@@ -99,6 +99,11 @@
             <materialDesign:Card Grid.Row="3" Name="listViewGrid">
                 <Grid>
                     <ListView HorizontalAlignment="Stretch" ItemsSource="{Binding InventoryObjects}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Margin" Value="30 0 0 0"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn  Header="STT" DisplayMemberBinding="{Binding Stt}"></GridViewColumn>

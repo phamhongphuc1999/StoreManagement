@@ -3,7 +3,7 @@ using StoreManagement.Data.Services;
 using StoreManagement.Model;
 using StoreManagement.View;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
@@ -23,8 +23,8 @@ namespace StoreManagement.ViewModel
 
         private ObjectService objectService;
 
-        private ObservableCollection<InventoryObject> inventoryObjects;
-        public ObservableCollection<InventoryObject> InventoryObjects
+        private List<InventoryObject> inventoryObjects;
+        public List<InventoryObject> InventoryObjects
         {
             get { return inventoryObjects; }
             set
@@ -102,7 +102,7 @@ namespace StoreManagement.ViewModel
         {
             SQLConnecter.CreateConnection();
             objectService = new ObjectService();
-            InventoryObjects = new ObservableCollection<InventoryObject>();
+            InventoryObjects = new List<InventoryObject>();
 
             StartTime = DateTime.Now;
             EndTime = DateTime.Now;
@@ -123,16 +123,16 @@ namespace StoreManagement.ViewModel
             LoadedWindowCommand = new RelayCommand<Window>(
                 sender => { return true; }, sender =>
                 {
-                    if (sender == null) return;
-                    sender.Hide();
-                    LoginWindow loginWindow = new LoginWindow();
-                    loginWindow.ShowDialog();
-                    LoginViewModel loginView = loginWindow.DataContext as LoginViewModel;
-                    if (loginView.IsLogin)
-                    {
-                        sender.Show();
-                        InventoryObjects = objectService.GetInventoryObjects();
-                    }
+                    //if (sender == null) return;
+                    //sender.Hide();
+                    //LoginWindow loginWindow = new LoginWindow();
+                    //loginWindow.ShowDialog();
+                    //LoginViewModel loginView = loginWindow.DataContext as LoginViewModel;
+                    //if (loginView.IsLogin)
+                    //{
+                    //    sender.Show();
+                    //    InventoryObjects = objectService.GetInventoryObjects();
+                    //}
                 });
         }
 

@@ -1,6 +1,5 @@
 ﻿using StoreManagement.Model;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace StoreManagement.Data.Services
@@ -9,12 +8,55 @@ namespace StoreManagement.Data.Services
     {
         public UnitService(): base() { }
 
-        public ObservableCollection<Unit> GetListUnit()
+        public List<Unit> GetListUnit()
         {
-            IEnumerable<Unit> unitList = database.Units.AsEnumerable();
-            return new ObservableCollection<Unit>(unitList);
+            List<Unit> unitList = database.Units.ToList();
+            return unitList;
         }
 
+        public bool AddNewUnit(string unitDisplayName)
+        {
+            Unit unit = database.Units.FirstOrDefault(x => x.DisplayName == unitDisplayName);
+            if (unit != null) return false;
+            Unit newUnit = new Unit { DisplayName = unitDisplayName };
+            database.Units.Add(newUnit);
+            database.SaveChanges();
+            return true;
+        }
 
+        public Unit EditUnit(int unitId, string newName)
+        {
+            Unit unit = database.Units.Find(unitId);
+            if (unit == null) return null;
+            unit.DisplayName = newName;
+            database.SaveChanges();
+            return unit;
+        }
+
+        public Unit EditUnit(string oldName, string newName)
+        {
+            Unit unit = database.Units.FirstOrDefault(x => x.DisplayName == oldName);
+            if (unit == null) return null;
+            unit.DisplayName = newName;
+            database.SaveChanges();
+            return unit;
+        }
+
+        public Unit DeleteUnit(int unitId)
+        {
+            Unit unit = database.Units.Find(unitId);
+            if (unit == null) return null;
+            database.Units.Remove(unit);
+            return unit;
+        }
+
+        public Unit DeleteUnit(string unitName)
+        {
+            Unit unit = database.Units.FirstOrDefault(x => x.DisplayName == unitName);
+            if (unit == null) return null;
+            database.Units.Remove(unit);
+            database.SaveChanges();
+            return unit;
+        }
     }
 }

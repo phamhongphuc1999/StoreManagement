@@ -1,7 +1,6 @@
 ﻿using StoreManagement.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace StoreManagement.Data.Services
@@ -12,7 +11,7 @@ namespace StoreManagement.Data.Services
         {
         }
 
-        public ObservableCollection<InventoryObject> GetInventoryObjects()
+        public List<InventoryObject> GetInventoryObjects()
         {
             int Stt = 0;
             List<ObjectTable> objectTables = database.ObjectTables.ToList();
@@ -32,10 +31,10 @@ namespace StoreManagement.Data.Services
                     InventoryCount = inputCount - outputCount
                 };
             });
-            return new ObservableCollection<InventoryObject>(result);
+            return result.ToList();
         }
 
-        public ObservableCollection<InventoryObject> GetInventoryObjects(DateTime startTime, DateTime endTime)
+        public List<InventoryObject> GetInventoryObjects(DateTime startTime, DateTime endTime)
         {
             int Stt = 0;
             List<ObjectTable> objectTables = database.ObjectTables.ToList();
@@ -67,7 +66,7 @@ namespace StoreManagement.Data.Services
                     InventoryCount = inputCount - outputCount
                 };
             });
-            return new ObservableCollection<InventoryObject>(result);
+            return result.ToList();
         }
     }
 }

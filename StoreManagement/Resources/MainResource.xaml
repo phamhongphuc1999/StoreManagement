@@ -6,4 +6,5 @@
     <viewmodel:SettingViewModel x:Key="settingViewModel"></viewmodel:SettingViewModel>
     <viewmodel:LoginViewModel x:Key="loginViewModel"></viewmodel:LoginViewModel>
     <viewmodel:UnitViewModel x:Key="unitViewModel"></viewmodel:UnitViewModel>
+    <viewmodel:SuplierViewModel x:Key="suplierViewModel"></viewmodel:SuplierViewModel>
 </ResourceDictionary>

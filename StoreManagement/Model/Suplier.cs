@@ -23,6 +23,6 @@ namespace StoreManagement.Model
         public string MoreInfo { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:d}")]
-        public DateTime? ContractDate { get; set; }
+        public DateTime ContractDate { get; set; }
     }
 }

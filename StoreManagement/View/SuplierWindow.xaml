@@ -14,7 +14,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.View"
         mc:Ignorable="d" Name="suplierWindow" WindowStyle="None"
-        Title="Nhà cung cấp" Height="450" Width="800">
+        Title="Nhà cung cấp" Height="450" Width="800"
+        DataContext="{StaticResource suplierViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -47,7 +48,7 @@
                 <WrapPanel>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Width="100" Margin="5"
-                            Command="{Binding AddCommand}">
+                            Command="{Binding AddSuplierCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -63,7 +64,7 @@
                     </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Width="100" Margin="5"
-                            Command="{Binding EditCommand}">
+                            Command="{Binding EditSuplierCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -79,7 +80,7 @@
                     </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Width="100" Margin="5"
-                            Command="{Binding DeleteCommand}">
+                            Command="{Binding DeleteSuplierCommand}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
@@ -96,19 +97,36 @@
                 </WrapPanel>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="2" VerticalAlignment="Stretch">
-                <ListView ItemsSource="{Binding list}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                <ListView ItemsSource="{Binding SuplierList}" SelectedItem="{Binding SelectedSuplierItem, Mode=OneWayToSource}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Tên nhà cung cấp" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
-                            <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
-                            <GridViewColumn Header="Thông tin thêm" DisplayMemberBinding="{Binding MoreInfo}"></GridViewColumn>
-                            <GridViewColumn Header="Ngày hợp tác" DisplayMemberBinding="{Binding ContractDate}"></GridViewColumn>
+                            <GridViewColumn Header="Tên nhà cung cấp" DisplayMemberBinding="{Binding DisplayName}" 
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
+                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}"
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
+                            <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Phone}"
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
+                            <GridViewColumn Header="Thông tin thêm" DisplayMemberBinding="{Binding MoreInfo}"
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
+                            <GridViewColumn Header="Ngày hợp tác" DisplayMemberBinding="{Binding ContractDate}"
+                                            Width="{Binding ElementName=helperField, Path=ActualWidth}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </materialDesign:Card>
+            <Grid Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="helperField" Grid.Column="0"></Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
